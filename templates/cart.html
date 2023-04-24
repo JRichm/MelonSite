@@ -14,12 +14,19 @@
     {% block body %}
     <main>
         <div id="cart-box">
-            {% for melon_id, qty in session['cart'].items() %}
-                <span>
-                    <p>{{ melon_id }}:</p>
-                    <p>{{ qty }}</p>
-                </span>
-            {% endfor %}
+            <table class="table table-striped mt-3">
+                <thead>
+                    {% for melon in cart_melons %}
+                        <tr>
+                            <th>{{ melon.common_name }}</th>
+                            <th>{{ melon.quantity }}</th>
+                            <th>{{ '%0.2f' | format(melon.price) }}</th>
+                            <th>{{ '%0.2f' | format(melon.total_cost) }}</th>
+                        </tr>
+                    {% endfor %}
+                </thead>
+            </table>
+            <a class="btn btn-primary" href="{{ url_for('empty_cart') }}">Empty Cart</a>
         </div>
     </main>
     {% endblock %}

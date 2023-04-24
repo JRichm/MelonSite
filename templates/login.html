@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    {% endblock %}
+    <title>Document</title>
+</head>
+<body>
+    {% block body %}
+        <h2>Please Sign In</h2>
+        <form method="POST" action="/login">
+            <div>{{ form.username.label }}: {{ form.username }}</div>
+            <div>{{ form.password.label }}: {{ form.password }}</div>
+            {{ form.csrf_token }}
+            <button class="btn btn-primary" type="submit">Sign In</button>
+        </form>
+    {% endblock %}
+</body>
+</html>
