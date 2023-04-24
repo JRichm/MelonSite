@@ -23,7 +23,7 @@ def cart_page():
     return render_template('cart.html')
 
 @app.route('/add_to_cart/<melon_id>')
-def add_melon_to_cart():
+def add_melon_to_cart(melon_id):
     return ('added melon to cart')
 
 if __name__ == '__main__':

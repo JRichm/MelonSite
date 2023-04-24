@@ -1,18 +1,39 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block extra_head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/melon.css') }}">
+    {% endblock %}
     <title>Document</title>
 </head>
 <body>
-    <header>
-
-    </header>
+    {% block body %}
     <main>
-        <h1>Your Melons</h1>
+        <div id="melon-box">
+            <div id="melon-img">
+                <img src="{{ melon.image_url }}">
+            </div>
+            <div id="melon-details">
+                <div id="deets">
+                    <h1>{{ melon.common_name }}</h1>
+                    <span><p>Price:</p><p>{{ melon.price_str() }}</p></span>
+                    <span><p>Color:</p><p>{{ melon.color }}</p></span>
+                    {% if melon.seedless %}
+                        <span><p style="width: 100%; text-align: end;">Seedless</p></span>
+                    {% else %}
+                        <span><p style="width: 100%; text-align: end;">Warning: This melon has seeds!</p></span>
+                    {% endif %}
+                </div>
+                <div>
+                    <a class="btn btn-primary" href='{{ url_for("add_melon_to_cart", melon_id=melon.melon_id) }}''>Add to Cart</a>
+                </div>
+            </div>
+        </div>
     </main>
+    {% endblock %}
 </body>
 </html>

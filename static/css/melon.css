@@ -1,0 +1,57 @@
+main {
+    margin: 0px;
+}
+
+#melon-box {
+    display: flex;
+    flex-direction: row;
+}
+
+#melon-img {
+    background-color: #ad3838;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 600px;
+}
+
+
+#melon-img img {
+    max-width: 750px;
+    max-height: 550px;
+    min-width: 550px;
+    min-height: 550px;
+}
+
+#melon-details {
+    background-color: #75b855;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 450px;
+    padding: 25px;
+}
+
+#deets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#deets h1 {
+    margin: 15px;
+}
+
+#deets span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5px;
+}
+
+#melon-details a {
+    width: 100%;
+    height: 40px;
+}
