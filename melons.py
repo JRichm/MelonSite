@@ -22,8 +22,6 @@ def get_melon_by_id(melon_id):
     return melon_dict[melon_id]
     
 def get_all_melons():
-    print('\nget all melons')
-    print(melon_dict.values)
     return melon_dict
         
 def printCSV(csv_file):
@@ -40,9 +38,6 @@ def printCSV(csv_file):
                             eval(each['seedless']))
             
             melon_dict[melon_id] = newMelon
-            
-    print('\nmy melon dict:')
-    print(melon_dict)
     
 printCSV(csvFile)
         

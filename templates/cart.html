@@ -1,18 +1,27 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block extra_head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+    {% endblock %}
     <title>Document</title>
 </head>
 <body>
-    <header>
-
-    </header>
+    {% block body %}
     <main>
-        <h1>Your cart</h1>
+        <div id="cart-box">
+            {% for melon_id, qty in session['cart'].items() %}
+                <span>
+                    <p>{{ melon_id }}:</p>
+                    <p>{{ qty }}</p>
+                </span>
+            {% endfor %}
+        </div>
     </main>
+    {% endblock %}
 </body>
 </html>

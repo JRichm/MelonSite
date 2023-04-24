@@ -1,0 +1,19 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 25px;
+}
+
+#cart-box {
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+}
+
+#cart-box span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 400px;
+}
