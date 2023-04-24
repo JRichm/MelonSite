@@ -15,8 +15,8 @@ def all_melons():
     return render_template('melons.html', melon_list=melonScript.get_all_melons())
 
 @app.route('/melon/<melon_id>')
-def show_melon():
-    return render_template('melon.html')
+def show_melon(melon_id):
+    return render_template('melon.html', melon=melonScript.get_melon_by_id(melon_id))
 
 @app.route('/cart')
 def cart_page():
