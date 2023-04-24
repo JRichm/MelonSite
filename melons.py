@@ -21,24 +21,29 @@ class Melon:
 def get_melon_by_id(melon_id):
     return melon_dict[melon_id]
     
-def get_all():
-    return list(melon_dict.values)
+def get_all_melons():
+    print('\nget all melons')
+    print(melon_dict.values)
+    return melon_dict
         
 def printCSV(csv_file):
     with open(csv_file) as storeMelons:
         reader = csv.DictReader(storeMelons)
-        reader = list(reader)
         
-    for each in reader:
-        print(each)
-        melon_id = each['melon_id']
-        newMelon = Melon(melon_id,
-                         each['common_name'],
-                         float(each['price']),
-                         each['image_url'],
-                         each['color'],
-                         eval(each['seedless']))
-        
-        melon_dict[melon_id] = melon
-        
+        for each in reader:
+            melon_id = each['melon_id']
+            newMelon = Melon(melon_id,
+                            each['common_name'],
+                            float(each['price']),
+                            each['image_url'],
+                            each['color'],
+                            eval(each['seedless']))
+            
+            melon_dict[melon_id] = newMelon
+            
+    print('\nmy melon dict:')
+    print(melon_dict)
+    
 printCSV(csvFile)
+        
+        

@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, flash, request
+import melons as melonScript
 import jinja2
 
 app = Flask(__name__)
@@ -10,11 +11,11 @@ def home_page():
     return render_template('base.html')
 
 @app.route('/melons')
-def melons_page():
-    return render_template('melons.html')
+def all_melons():
+    return render_template('melons.html', melon_list=melonScript.get_all_melons())
 
 @app.route('/melon/<melon_id>')
-def melon_page():
+def show_melon():
     return render_template('melon.html')
 
 @app.route('/cart')
@@ -24,7 +25,6 @@ def cart_page():
 @app.route('/add_to_cart/<melon_id>')
 def add_melon_to_cart():
     return ('added melon to cart')
-
 
 if __name__ == '__main__':
     app.env = 'development'

@@ -1,13 +1,31 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block extra_head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/melons.css') }}">
+    {% endblock %}
     <title>Document</title>
 </head>
 <body>
-    <h1>Your Melons</h1>
+    {% block body %}
+    <main>
+        <div id="melons-box">
+            {% for melon in melon_list %}
+                <div id="melon-container">
+                    <img src='{{ melon_list[melon].image_url }}'>
+                    <span>
+                        <a href='{{ url_for("show_melon", melon_id=melon_list[melon].melon_id) }}'>{{ melon_list[melon].common_name }}</a>
+                        <p>{{ melon_list[melon].price_str() }}</p>
+                    </span>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    {% endblock %}
 </body>
 </html>
