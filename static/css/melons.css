@@ -3,22 +3,30 @@ main {
     display: flex;
     justify-content: center;
     height: 100%;
+    width: 150%;
 }
 
 #melons-box {
+    background-color: #ad3838;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 100px;
+    padding:100px;
 }
 
 #melon-container {
-    background-color: #ad3838;
+    background-color: #a13232;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     width: 300px;
     padding: 15px
+}
+
+#melon-container:hover {
+    background-color: #db6161;
+
 }
 
 #melon-container img {

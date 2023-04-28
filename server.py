@@ -4,12 +4,11 @@ import melons as melonScript
 import customers as customerScript
 import jinja2
 
-
 app = Flask(__name__)
 app.jinja_env.undefined = jinja2.StrictUndefined # for debugging purposes
 app.secret_key = 'dev'
 
-## Flask Routes ##
+##  Flask Routes  ##
 @app.route('/')
 def home_page():
     return render_template('base.html')
@@ -24,7 +23,7 @@ def show_melon(melon_id):
 
 @app.route('/cart')
 def show_cart():
-    order_total = 0
+    order_total = [0, 0]
     cart_melons = []
     
     # get cart dict from session (or an empty one if none exists yet)
@@ -34,9 +33,10 @@ def show_cart():
         melon = melonScript.get_melon_by_id(melon_id)
         
         total_cost = quantity * melon.price
-        order_total += total_cost
+        order_total[0] += total_cost
         
         melon.quantity = quantity
+        order_total[1] += quantity
         melon.total_cost = total_cost
         
         cart_melons.append(melon)

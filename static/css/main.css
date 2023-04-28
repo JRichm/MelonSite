@@ -1,6 +1,5 @@
 body {
-    background-color: #db6161;
-    margin: 0px;
+    background-color: #157241;
 }
 
 nav {
@@ -10,12 +9,21 @@ nav {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 main {
-    background-color: #f9f6f4;
+    border-left: solid;
+    border-right: solid;
+    border-width: 65px;
+    border-color: #75b855;
+    background-color: #db6161;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 150%;
+    min-height: 995px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,4 +32,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .alert {
     margin-top: 25px;
+}
+
+#message {
+    position: absolute;
+    margin: 20px;
 }
